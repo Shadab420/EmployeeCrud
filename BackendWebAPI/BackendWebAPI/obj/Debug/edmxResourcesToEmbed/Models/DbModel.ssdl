@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeCrudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeCrud.dbo.Employees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" />
+    <Property Name="EmpCode" Type="varchar" MaxLength="20" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Position" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="EmployeeCrudModelStoreContainer">
+    <EntitySet Name="Employees" EntityType="Self.Employees" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Employees].[EmpID] AS [EmpID], 
+    [Employees].[FullName] AS [FullName], 
+    [Employees].[EmpCode] AS [EmpCode], 
+    [Employees].[Mobile] AS [Mobile], 
+    [Employees].[Position] AS [Position]
+    FROM [dbo].[Employees] AS [Employees]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
